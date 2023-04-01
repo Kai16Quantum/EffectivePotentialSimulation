@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwufkgumpwy6b"]
+
+[ext_resource type="Theme" uid="uid://crwun0akp6o33" path="res://UiTheme.tres" id="1_jwata"]
+[ext_resource type="Script" path="res://lslider.gd" id="2_bb6ra"]
+[ext_resource type="FontFile" uid="uid://dsu5ba8k050ca" path="res://Mont-HeavyDEMO.otf" id="2_gt46t"]
+
+[node name="Lslider" type="HSlider"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -329.0
+offset_top = -211.0
+offset_right = 332.0
+offset_bottom = -195.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("1_jwata")
+max_value = 4.0
+step = 0.001
+script = ExtResource("2_bb6ra")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -144.0
+offset_top = 44.0
+offset_right = 246.0
+offset_bottom = 77.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_gt46t")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Variable" type="Label" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 40.0
+offset_right = 806.0
+offset_bottom = 102.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_gt46t")
+theme_override_font_sizes/font_size = 64
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1

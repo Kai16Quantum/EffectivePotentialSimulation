@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b074sy0d1xum1"]
+
+[ext_resource type="PackedScene" uid="uid://dwufkgumpwy6b" path="res://lslider.tscn" id="1_22iic"]
+
+[node name="KSlider" instance=ExtResource("1_22iic")]
+
+[node name="Variable" parent="." index="1"]
+offset_left = 750.0
+offset_right = 1022.0
+text = "K (GMm)"

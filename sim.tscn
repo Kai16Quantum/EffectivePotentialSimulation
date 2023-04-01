@@ -1,0 +1,278 @@
+[gd_scene load_steps=26 format=3 uid="uid://cahvd7iiagfto"]
+
+[ext_resource type="Script" path="res://Simulation.gd" id="1_mbkkh"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_kgups"]
+[ext_resource type="Texture2D" uid="uid://dm4bfmq5vpcwh" path="res://Earth_Western_Hemisphere_transparent_background.png" id="4_8t4u7"]
+[ext_resource type="PackedScene" uid="uid://dwufkgumpwy6b" path="res://lslider.tscn" id="4_ewe18"]
+[ext_resource type="Texture2D" uid="uid://bbnr70n0g8em8" path="res://mond-himmel-transparent-png.png" id="4_tedyu"]
+[ext_resource type="PackedScene" uid="uid://b7ttoq2csx4b8" path="res://pr_slider.tscn" id="5_33pns"]
+[ext_resource type="PackedScene" uid="uid://b074sy0d1xum1" path="res://k_slider.tscn" id="6_4aimi"]
+[ext_resource type="Script" path="res://SliderUI.gd" id="6_4m7b4"]
+[ext_resource type="PackedScene" uid="uid://ca2rlwm0l1w88" path="res://r_slider.tscn" id="6_58h0u"]
+[ext_resource type="PackedScene" uid="uid://0cpc22eoy07n" path="res://mu_slider.tscn" id="6_cxwe2"]
+[ext_resource type="Texture2D" uid="uid://cbccmsuk0ymvo" path="res://space.jpg" id="7_x08ri"]
+[ext_resource type="Texture2D" uid="uid://47ofb26sidqk" path="res://CloseButton.png" id="11_wyhhd"]
+[ext_resource type="Texture2D" uid="uid://bnhwx2ytplwbh" path="res://Checkbox_Tick.png" id="13_0gngq"]
+[ext_resource type="Texture2D" uid="uid://jp5jcupesiqn" path="res://Checkbox.png" id="14_wvf66"]
+[ext_resource type="FontFile" uid="uid://dsu5ba8k050ca" path="res://Mont-HeavyDEMO.otf" id="15_wecu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ctewe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77ixj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibo1l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxgq3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fdao"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mub36"]
+load_path = "res://.godot/imported/Checkbox.png-c1a30f7454be9491b2dacc7c0982a2a8.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6hhq"]
+texture = SubResource("CompressedTexture2D_mub36")
+texture_margin_top = 86.0
+texture_margin_right = 83.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07pk4"]
+texture = ExtResource("14_wvf66")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5mdbo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsdnv"]
+texture = ExtResource("14_wvf66")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mbkkh")
+
+[node name="Space" type="Sprite2D" parent="."]
+self_modulate = Color(0.160784, 0.160784, 0.160784, 1)
+position = Vector2(2, 5)
+scale = Vector2(0.566851, 0.566851)
+texture = ExtResource("7_x08ri")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+script = ExtResource("2_kgups")
+
+[node name="OrbitPlot" type="Line2D" parent="."]
+width = 1.0
+default_color = Color(1, 1, 0.807843, 1)
+
+[node name="Center" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("4_8t4u7")
+
+[node name="BodyLine" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(1, 0.439216, 0.12549, 1)
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.00520833, 0.00520833)
+texture = ExtResource("4_tedyu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SliderUI" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 47.0
+offset_top = 22.0
+offset_right = 710.0
+offset_bottom = 608.0
+scale = Vector2(0.35, 0.35)
+script = ExtResource("6_4m7b4")
+
+[node name="KSlider" parent="CanvasLayer/SliderUI" instance=ExtResource("6_4aimi")]
+layout_mode = 2
+min_value = 0.6
+max_value = 1.8
+value = 0.6
+
+[node name="MuSlider" parent="CanvasLayer/SliderUI" instance=ExtResource("6_cxwe2")]
+layout_mode = 2
+min_value = 0.7
+max_value = 1.8
+value = 0.7
+
+[node name="Lslider" parent="CanvasLayer/SliderUI" instance=ExtResource("4_ewe18")]
+layout_mode = 2
+max_value = 2.0
+
+[node name="P_r_slider" parent="CanvasLayer/SliderUI" instance=ExtResource("5_33pns")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+
+[node name="RSlider" parent="CanvasLayer/SliderUI" instance=ExtResource("6_58h0u")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/SliderUI"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ctewe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_77ixj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibo1l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lxgq3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4fdao")
+icon = ExtResource("11_wyhhd")
+flat = true
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SliderUI"]
+layout_mode = 2
+theme_override_constants/separation = 95
+
+[node name="OrbitaCircular" type="Button" parent="CanvasLayer/SliderUI/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_q6hhq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_07pk4")
+
+[node name="Label" type="Label" parent="CanvasLayer/SliderUI/HBoxContainer/OrbitaCircular"]
+layout_mode = 0
+offset_left = -17.1429
+offset_top = 88.4286
+offset_right = 108.857
+offset_bottom = 154.429
+theme_override_fonts/font = ExtResource("15_wecu2")
+theme_override_font_sizes/font_size = 32
+text = "Obtener
+Orbita circular"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OrbitaEliptica" type="Button" parent="CanvasLayer/SliderUI/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_q6hhq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_07pk4")
+
+[node name="Label" type="Label" parent="CanvasLayer/SliderUI/HBoxContainer/OrbitaEliptica"]
+layout_mode = 0
+offset_left = -17.1429
+offset_top = 88.4286
+offset_right = 108.857
+offset_bottom = 154.429
+theme_override_fonts/font = ExtResource("15_wecu2")
+theme_override_font_sizes/font_size = 32
+text = "Ejemplo
+Eliptica"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OrbitaEliptica2" type="Button" parent="CanvasLayer/SliderUI/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_q6hhq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_07pk4")
+
+[node name="Label" type="Label" parent="CanvasLayer/SliderUI/HBoxContainer/OrbitaEliptica2"]
+layout_mode = 0
+offset_left = -17.1429
+offset_top = 88.4286
+offset_right = 108.857
+offset_bottom = 154.429
+theme_override_fonts/font = ExtResource("15_wecu2")
+theme_override_font_sizes/font_size = 32
+text = "Ejemplo
+Eliptica 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OrbitaAbierta" type="Button" parent="CanvasLayer/SliderUI/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_q6hhq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_07pk4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_07pk4")
+
+[node name="Label" type="Label" parent="CanvasLayer/SliderUI/HBoxContainer/OrbitaAbierta"]
+layout_mode = 0
+offset_left = -17.1429
+offset_top = 88.4286
+offset_right = 108.857
+offset_bottom = 154.429
+theme_override_fonts/font = ExtResource("15_wecu2")
+theme_override_font_sizes/font_size = 32
+text = "Ejemplo
+Abierta"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EnergyPlot" type="PanelContainer" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0.490196)
+clip_contents = true
+offset_left = 762.0
+offset_top = 9.0
+offset_right = 1146.0
+offset_bottom = 249.0
+
+[node name="EffPot" type="Line2D" parent="CanvasLayer/EnergyPlot"]
+position = Vector2(13, 118)
+width = 5.0
+
+[node name="CurrentEnergy" type="Sprite2D" parent="CanvasLayer/EnergyPlot/EffPot"]
+scale = Vector2(0.003125, 0.003125)
+texture = ExtResource("4_tedyu")
+
+[node name="CurrentPotential" type="Sprite2D" parent="CanvasLayer/EnergyPlot/EffPot"]
+scale = Vector2(0.0114583, 0.0106399)
+texture = ExtResource("4_tedyu")
+
+[node name="EnergyLine" type="Line2D" parent="CanvasLayer/EnergyPlot/EffPot"]
+width = 1.0
+default_color = Color(0.341176, 1, 0.72549, 1)
+
+[node name="ZeroLine" type="Line2D" parent="CanvasLayer/EnergyPlot/EffPot"]
+width = 2.0
+default_color = Color(0.584314, 0.427451, 1, 1)
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer"]
+offset_left = 446.0
+offset_top = 23.0
+offset_right = 531.0
+offset_bottom = 101.0
+theme_override_icons/checked = ExtResource("13_0gngq")
+theme_override_icons/unchecked = SubResource("PlaceholderTexture2D_5mdbo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tsdnv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tsdnv")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tsdnv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tsdnv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_tsdnv")
+theme_override_styles/focus = SubResource("StyleBoxTexture_tsdnv")
+
+[node name="Label" type="Label" parent="CanvasLayer/CheckBox"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 13.0
+offset_right = 196.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("15_wecu2")
+text = "Eliminar coordenada cíclica"
+autowrap_mode = 2
+
+[node name="AdvanceTime" type="Timer" parent="."]
+wait_time = 0.03
+autostart = true
+
+[connection signal="drag_ended" from="CanvasLayer/SliderUI/KSlider" to="." method="_on_k_slider_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/SliderUI/MuSlider" to="." method="_on_mu_slider_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/SliderUI/Lslider" to="." method="_on_lslider_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/SliderUI/P_r_slider" to="." method="_on_p_r_slider_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/SliderUI/RSlider" to="." method="_on_r_slider_drag_ended"]
+[connection signal="pressed" from="CanvasLayer/SliderUI/Button" to="CanvasLayer/SliderUI" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/SliderUI/HBoxContainer/OrbitaCircular" to="." method="_on_orbita_circular_pressed"]
+[connection signal="pressed" from="CanvasLayer/SliderUI/HBoxContainer/OrbitaEliptica" to="." method="_on_orbita_eliptica_pressed"]
+[connection signal="pressed" from="CanvasLayer/SliderUI/HBoxContainer/OrbitaEliptica2" to="." method="_on_orbita_eliptica_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/SliderUI/HBoxContainer/OrbitaAbierta" to="." method="_on_orbita_abierta_pressed"]
+[connection signal="toggled" from="CanvasLayer/CheckBox" to="Camera2D" method="_on_check_box_toggled"]
+[connection signal="timeout" from="AdvanceTime" to="." method="_on_advance_time_timeout"]

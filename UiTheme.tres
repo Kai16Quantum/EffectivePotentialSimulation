@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://crwun0akp6o33"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ubxdu"]
+load_path = "res://.godot/imported/SliderB.png-5d66dbdea9c09f8620ae3516579f77ba.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfqt5"]
+load_path = "res://.godot/imported/SliderB.png-5d66dbdea9c09f8620ae3516579f77ba.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7i5gd"]
+load_path = "res://.godot/imported/SliderB.png-5d66dbdea9c09f8620ae3516579f77ba.ctex"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou5d5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m48nn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f0r3n"]
+load_path = "res://.godot/imported/Slider.png-1da49978c7c699b723ee3c65a3401633.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qgbw6"]
+texture = SubResource("CompressedTexture2D_f0r3n")
+texture_margin_top = 114.0
+expand_margin_left = 96.0
+expand_margin_right = 98.0
+region_rect = Rect2(15.5, 10.5, 737, 120)
+
+[resource]
+HSlider/icons/grabber = SubResource("CompressedTexture2D_ubxdu")
+HSlider/icons/grabber_disabled = SubResource("CompressedTexture2D_xfqt5")
+HSlider/icons/grabber_highlight = SubResource("CompressedTexture2D_7i5gd")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_ou5d5")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_m48nn")
+HSlider/styles/slider = SubResource("StyleBoxTexture_qgbw6")
