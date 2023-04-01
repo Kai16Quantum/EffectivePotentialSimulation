@@ -5,4 +5,4 @@ There are interactive examples and sliders (without boundary conditions, so use 
 
 The trajectory is also shown, alongisde a toggleable 1D problem.
 
-![Example Gif](https://i.imgur.com/9LBGFmG.mp4)
+<img src='./Misc/SimulaciónGif.gif'>
